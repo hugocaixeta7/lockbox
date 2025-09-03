@@ -1,14 +1,17 @@
 <?php
+$ROOT = dirname(__DIR__);
 
-$ROOT = dirname(__DIR__); 
+require $ROOT . '/Core/functions.php';
 
-// Models
-require $ROOT . '/models/Usuario.php';
+spl_autoload_register(function ($class) use ($ROOT) {
+    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    $file = $ROOT . '/' . $class . '.php';
+
+    if (file_exists($file)) {
+        require $file;
+    }
+});
 
 session_start();
-// Core
-require $ROOT . '/Flash.php';
-require $ROOT . '/functions.php';
-require $ROOT . '/database.php';
-require $ROOT . '/Validacao.php';
+
 require $ROOT . '/routes.php';

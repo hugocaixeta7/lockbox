@@ -1,4 +1,8 @@
 <?php
+namespace Core;
+
+use PDO;
+
 class Database
 {
     // Conexão com o banco de dados
@@ -25,4 +29,3 @@ class Database
     }
 }
 
-$database = new Database(config('database'));

@@ -1,14 +1,20 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+use Core\Database;
+use Core\Validacao;
+use App\Models\Usuario;
 
-    $validacao = Validacao::validar([ 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $database = new Database(config('database'));
+
+
+    $validacao = Validacao::validar([
         'nome'  => ['required'],
         'email' => ['required', 'email', 'confirmed', 'unique:usuarios'],
         'senha' => ['required', 'min:8', 'max:30', 'strong']
     ], $_POST);
 
-    if($validacao->naoPassou()) {
+    if ($validacao->naoPassou()) {
         view('registrar');
         exit();
     }
