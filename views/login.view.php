@@ -42,7 +42,7 @@
                             <input
                                 type="password"
                                 name="senha"
-                                class="input input-bordered w-full max-w-xs bg-white"/>
+                                class="input input-bordered w-full max-w-xs bg-white" />
                             <?php if (isset($validacoes['senha'])): ?>
                                 <div class="label text-xs text-error"><?= $validacoes['senha'][0] ?></div>
                             <?php endif; ?>

@@ -4,12 +4,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $validacao = Validacao::validar([ 
+    $validacao = Validacao::validar([
         'email' => ['required', 'email'],
         'senha' => ['required']
     ], $_POST);
 
-    if($validacao->naoPassou()) {
+    if ($validacao->naoPassou()) {
         view('login');
         exit();
     }
@@ -20,23 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         class: Usuario::class,
         params: compact('email')
     )->fetch();
-    
-    // validar a senha
-    if ($usuario) {
-        $senhaDoPost = $_POST['senha'];
-        $senhaDoBanco = $usuario->senha; 
 
-        if(! password_verify($senhaDoPost, $senhaDoBanco)) {
-            flash()->push('validacoes_login', ['Usuário ou senha estão incorretos!']);
-            header('location: login');
-            exit();
-        }
-        // 3. se existir nós vamos adicionar na sessão que o usúario está autenticado
+
+    // validar a senha
+    if ($usuario && password_verify($_POST['senha'], $usuario->senha)) {
+
         $_SESSION['auth'] = $usuario;
         flash()->push('mensagem', 'Seja bem vindo ' . $usuario->nome . '!');
-        header('location: /book-wise');
+
+        header('location: /lockbox');
         exit();
+    } else {
+        flash()->push('validacoes', ['email' => ['Usuário ou senha estão incorretos!']]);
     }
 }
-
 view('login');
