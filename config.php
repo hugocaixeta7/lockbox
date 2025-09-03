@@ -5,7 +5,7 @@ return [
         'driver' => 'mysql',
         'host'   => "localhost",
         'port'   => 3306,
-        'dbname' => "book-wise",
+        'dbname' => "lockbox",
         'user'   => "root",
         'charset'   => "utf8mb4",
     ],

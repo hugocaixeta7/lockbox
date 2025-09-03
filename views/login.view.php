@@ -1,3 +1,4 @@
+<?php $validacoes = (flash()->get('validacoes')); ?>
 <div class="grid grid-cols-2">
     <div class="hero min-h-screen flex ml-40">
         <div class="hero-content -mt-20">
@@ -11,12 +12,18 @@
     <div class="bg-white hero mr-40 min-h-screen text-black">
         <div class="hero-content -mt-20">
             <form method="post" action="/lockbox/login">
-                <?php
-                $validacoes = (flash()->get('validacoes'));
-                ?>
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Faça o seu login</div>
+
+                        <?php if ($mensagem = flash()->get('mensagem')): ?>
+                            <div role="alert" class="flex items-center gap-2 p-3 rounded-md bg-green-100 border border-green-400 text-green-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4m6 2a9 9 0 11-18 0a9 9 0 0118 0z" />
+                                </svg>
+                                <span>Registrado com sucesso!</span>
+                            </div>
+                        <?php endif; ?>
 
                         <!-- Email -->
                         <label class="form-control">
