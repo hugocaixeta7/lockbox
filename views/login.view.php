@@ -11,7 +11,7 @@
     </div>
     <div class="bg-white hero mr-40 min-h-screen text-black">
         <div class="hero-content -mt-20">
-            <form method="post" action="/lockbox/login">
+            <form method="post" action="/login">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Faça o seu login</div>
@@ -58,7 +58,7 @@
                         <!-- Botão de Login / Quero me registrar -->
                         <div class="card-actions">
                             <button class="btn btn-primary btn-block text-black">Login</button>
-                            <a href="/lockbox/registrar" class="btn btn-link">Quero me registrar</a>
+                            <a href="/registrar" class="btn btn-link">Quero me registrar</a>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,6 @@
 </head>
 
 <body class="">
-    <?php require "views/{$view}.view.php" ?>
+    <?php require "../views/{$view}.view.php"; ?>
 </body>
 </html>

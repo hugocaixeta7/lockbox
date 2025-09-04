@@ -1,17 +1,12 @@
 <?php
-$ROOT = dirname(__DIR__);
 
-require $ROOT . '/Core/functions.php';
+require "../Core/functions.php";
 
-spl_autoload_register(function ($class) use ($ROOT) {
+spl_autoload_register(function ($class) {
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-    $file = $ROOT . '/' . $class . '.php';
-
-    if (file_exists($file)) {
-        require $file;
-    }
+    require base_path("{$class}.php");
 });
 
 session_start();
 
-require $ROOT . '/routes.php';
+require "../routes.php";

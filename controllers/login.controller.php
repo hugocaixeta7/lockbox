@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['auth'] = $usuario;
         flash()->push('mensagem', 'Seja bem vindo ' . $usuario->nome . '!');
 
-        header('location: /lockbox/dashboard');
+        header('location: /dashboard');
         exit();
     } else {
         flash()->push('validacoes', ['email' => ['Usuário ou senha estão incorretos!']]);

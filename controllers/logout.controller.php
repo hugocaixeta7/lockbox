@@ -2,5 +2,5 @@
 
 // $_SESSION['auth'];
 session_destroy();
-header('location: /lockbox/login');
+header('location: /login');
 exit();

@@ -1,7 +1,7 @@
 <?php
 
 if(!auth()) {    
-    header('location: /lockbox/login');
+    header('location: /login');
     exit();
 }
 

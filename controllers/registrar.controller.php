@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     flash()->push('mensagem', 'Registrado com sucesso!');
-    header('location: login');
+    header('location: /login');
     exit();
 }
 

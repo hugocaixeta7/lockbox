@@ -12,7 +12,7 @@
     <div class="bg-white hero mr-40 min-h-screen text-black">
 
         <div class="hero-content -mt-20">
-            <form method="post" action="/lockbox/registrar">
+            <form method="post" action="/registrar">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Crie a sua conta</div>
@@ -56,7 +56,7 @@
 
                         <div class="card-actions">
                             <button class="btn btn-primary btn-block text-black">Registrar</button>
-                            <a href="/lockbox/login" class="btn btn-link">Já tenho uma conta</a>
+                            <a href="/login" class="btn btn-link">Já tenho uma conta</a>
                         </div>
                     </div>
                 </div>
