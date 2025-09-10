@@ -11,6 +11,5 @@ class CriarController
 
     public function store()
     {
-        dgocheff($_POST);
     }
 }

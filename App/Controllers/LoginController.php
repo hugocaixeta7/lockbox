@@ -11,7 +11,7 @@ class LoginController
 {
     public function index()
     {
-        return view('login');
+        return view('login', template: 'guest');
     }
 
     public function login()
@@ -26,7 +26,7 @@ class LoginController
 
         if ($validacao->naoPassou()) {
             // Se deu errado, volta para a página de login
-            return view('login');
+            return view('login', template: 'guest');
         }
         // se deu certo, faz a consulta no banco de dados
         // Fazer uma consulta no banco de dados com email e senha
@@ -40,7 +40,7 @@ class LoginController
         // Se deu errado com usuario e senha, volta para a página de login
         if (!$usuario || !password_verify($senha, $usuario->senha)) {
             flash()->push('validacoes', ['email' => ['Usuário ou senha estão incorretos!']]);
-            return view('login');
+            return view('login', template: 'guest');
         }
         // Se deu certo com usuario e senha, faz o login
         $_SESSION['auth'] = $usuario;
