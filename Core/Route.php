@@ -8,27 +8,29 @@ class Route
     public $routes = [];
 
     // Métodos
-    public function addRoute($httpMethod, $uri, $controller)
+    public function addRoute($httpMethod, $uri, $controller, $middleware = null)
     {
         if (is_string($controller)) {
             $data = [
                 'class' => $controller,
-                'method' => '__invoke'
+                'method' => '__invoke',
+                'middleware' => $middleware
             ];
         }
 
         if (is_array($controller)) {
             $data = [
                 'class' => $controller[0],
-                'method' => $controller[1]
+                'method' => $controller[1],
+                'middleware' => $middleware
             ];
         }
         $this->routes[$httpMethod][$uri] = $data;
     }
 
-    public function get($uri, $controller)
+    public function get($uri, $controller, $middleware = null)
     {
-        $this->addRoute('GET', $uri, $controller);
+        $this->addRoute('GET', $uri, $controller, $middleware);
         return $this;
     }
 
@@ -43,11 +45,9 @@ class Route
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $httpMethod = $_SERVER['REQUEST_METHOD'];
 
-        // Remove o prefixo /lockbox se estiver usando subdiretório
         $base = dirname($_SERVER['SCRIPT_NAME']);
         $uri = '/' . trim(str_replace($base, '', $uri), '/');
 
-        
         if (!isset($this->routes[$httpMethod][$uri])) {
             abort(404);
         }
@@ -55,6 +55,12 @@ class Route
         $routeInfo = $this->routes[$httpMethod][$uri];
         $class = $routeInfo['class'];
         $method = $routeInfo['method'];
+        $middleware = $routeInfo['middleware'];
+
+        if ($middleware) {
+            $m = new $middleware;
+            $m->handle();
+        }
 
         $c = new $class;
         $c->$method();
