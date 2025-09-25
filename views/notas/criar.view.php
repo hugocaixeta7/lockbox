@@ -1,3 +1,4 @@
+<?php $validacoes = (flash()->get('validacoes')); ?>
 <div class="menu bg-base-300 rounded-l-box w-56">
     <div class="bg-base-200 p-4">
         + Nova Nota
@@ -12,13 +13,19 @@
             <div class="label">
                 <span class="label-text mb-2">Título</span>
             </div>
-            <input type="text" placeholder="Título da nota" class="input input-bordered w-full" />
+            <input type="text" name="titulo" placeholder="Título da nota" class="input input-bordered w-full" />
+            <?php if (isset($validacoes['titulo'])): ?>
+                <div class="label text-xs text-error"><?= $validacoes['titulo'][0] ?></div>
+            <?php endif; ?>
         </label>
         <label class="form-control">
             <div class="label">
                 <span class="label-text mb-2">Sua Nota</span>
             </div>
-            <textarea placeholder="Descrição da nota" class="textarea h-26 textarea-bordered w-full"></textarea>
+            <textarea placeholder="Descrição da nota" name="nota" class="textarea h-26 textarea-bordered w-full"></textarea>
+            <?php if (isset($validacoes['nota'])): ?>
+                <div class="label text-xs text-error"><?= $validacoes['nota'][0] ?></div>
+            <?php endif; ?>
         </label>
         <div class="flex justify-end items-center mt-8">
             <button class="btn btn-primary">Salvar</button>

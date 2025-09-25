@@ -25,7 +25,6 @@ class LoginController
         ], $_POST);
 
         if ($validacao->naoPassou()) {
-            // Se deu errado, volta para a página de login
             return view('login', template: 'guest');
         }
         // se deu certo, faz a consulta no banco de dados
