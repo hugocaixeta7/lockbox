@@ -20,11 +20,11 @@ function view($view, $data = [], $template = 'app')
 
 function dgocheff(...$dump)
 {
-    cmdzin($dump);
+    dd($dump);
     die();
 }
 
-function cmdzin(...$dump)
+function dd(...$dump)
 {
     var_dump($dump);
 }
