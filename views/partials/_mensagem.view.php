@@ -1,10 +1,21 @@
 <?php if ($mensagem = flash()->get('mensagem')) { ?>
+    
+    <link rel="stylesheet" href="assets/css/mensagem.css">
 
-    <div role="alert" class="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        <span><?= $mensagem ?></span>
+    <div class="alert-message" id="alertMessage">
+        <div class="alert-content">
+            <svg class="alert-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span class="alert-text"><?= $mensagem ?></span>
+            <button class="alert-close" onclick="closeAlert()">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
     </div>
 
+    <script src="assets/js/mensagem.js"></script>
 <?php } ?>

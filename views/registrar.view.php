@@ -1,76 +1,77 @@
 <?php $validacoes = flash()->get('validacoes'); ?>
 
-<div class="grid grid-cols-2">
-
-    <div class="hero min-h-screen flex ml-40">
-        <div class="hero-content -mt-20">
-            <div>
-                <p class="py-2 text-xl">Bem Vindo ao</p>
-                <h1 class="text-6xl font-bold">LockBox</h1>
-                <p class="py-2 pb-4 text-xl">Onde você guarda <span class="italic">tudo</span> com segurança</p>
-            </div>
+<div class="auth-layout">
+    <div class="auth-hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Bem Vindo ao</p>
+            <h1 class="hero-title">LockBox</h1>
+            <p class="hero-description">Onde você guarda <span class="italic">tudo</span> com segurança</p>
         </div>
     </div>
 
-    <div class="bg-white hero mr-40 min-h-screen text-black">
-        <div class="hero-content -mt-20">
-            <form method="POST" action="/registrar">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title text-xl">Crie a sua conta</div>
+    <div class="auth-form-container">
+        <form method="POST" action="/registrar" class="auth-form">
+            <div class="card">
+                <h2 class="card-title">Crie a sua conta</h2>
 
-                        <label class="form-control">
-                            <div class="label">
-                                <span class="label-text text-black">Nome</span>
-                            </div>
-
-                            <input name="nome" type="text" class="input input-bordered w-full max-w-xs bg-white" value="<?= old('nome') ?>" />
-
-                            <?php if (isset($validacoes['nome'])) { ?>
-                                <div class="mt-1 text-xs text-error"><?= $validacoes['nome'][0] ?></div>
-                            <?php } ?>
-                        </label>
-
-                        <label class="form-control">
-                            <div class="label">
-                                <span class="label-text text-black">E-mail</span>
-                            </div>
-
-                            <input name="email" type="text" class="input input-bordered w-full max-w-xs bg-white" value="<?= old('email') ?>" />
-
-                            <?php if (isset($validacoes['email'])) { ?>
-                                <div class="mt-1 text-xs text-error"><?= $validacoes['email'][0] ?></div>
-                            <?php } ?>
-                        </label>
-
-                        <label class="form-control">
-                            <div class="label">
-                                <span class="label-text text-black">Confirme seu Email</span>
-                            </div>
-
-                            <input name="email_confirmacao" type="text" class="input input-bordered w-full max-w-xs bg-white" />
-                        </label>
-
-                        <label class="form-control">
-                            <div class="label">
-                                <span class="label-text text-black">Senha</span>
-                            </div>
-
-                            <input name="senha" type="password" class="input input-bordered w-full max-w-xs bg-white" />
-
-                            <?php if (isset($validacoes['senha'])) { ?>
-                                <div class="mt-1 text-xs text-error"><?= $validacoes['senha'][0] ?></div>
-                            <?php } ?>
-                        </label>
-
-                        <div class="card-actions">
-                            <button class="btn btn-primary btn-block">Registrar</button>
-                            <a href="/login" class="btn btn-link">Já tenho uma conta</a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="nome">Nome</label>
+                    <input
+                        type="text"
+                        name="nome"
+                        id="nome"
+                        class="form-input"
+                        placeholder="Seu nome completo"
+                        value="<?= old('nome') ?>"
+                        autocomplete="name" />
+                    <?php if (isset($validacoes['nome'])) { ?>
+                        <span class="form-error"><?= $validacoes['nome'][0] ?></span>
+                    <?php } ?>
                 </div>
-            </form>
-        </div>
-    </div>
 
+                <div class="form-group">
+                    <label class="form-label" for="email">E-mail</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-input"
+                        placeholder="seu@email.com"
+                        value="<?= old('email') ?>"
+                        autocomplete="email" />
+                    <?php if (isset($validacoes['email'])) { ?>
+                        <span class="form-error"><?= $validacoes['email'][0] ?></span>
+                    <?php } ?>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email_confirmacao">Confirme seu Email</label>
+                    <input
+                        type="email"
+                        name="email_confirmacao"
+                        id="email_confirmacao"
+                        class="form-input"
+                        placeholder="seu@email.com"
+                        autocomplete="email" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="senha">Senha</label>
+                    <input
+                        type="password"
+                        name="senha"
+                        id="senha"
+                        class="form-input"
+                        placeholder="••••••••"
+                        autocomplete="new-password" />
+                    <?php if (isset($validacoes['senha'])) { ?>
+                        <span class="form-error"><?= $validacoes['senha'][0] ?></span>
+                    <?php } ?>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                <a href="/login" class="btn btn-link btn-block">Já tenho uma conta</a>
+            </div>
+        </form>
+    </div>
 </div>

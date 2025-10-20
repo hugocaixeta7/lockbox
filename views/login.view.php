@@ -1,61 +1,53 @@
 <?php $validacoes = flash()->get('validacoes'); ?>
 
-<div class="grid grid-cols-2">
-
-    <div class="hero min-h-screen flex ml-40">
-        <div class="hero-content -mt-20">
-            <div>
-                <p class="py-2 text-xl">Bem Vindo ao</p>
-                <h1 class="text-6xl font-bold">LockBox</h1>
-                <p class="py-2 pb-4 text-xl">Onde você guarda <span class="italic">tudo</span> com segurança</p>
-            </div>
+<div class="auth-layout">
+    <div class="auth-hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Bem Vindo ao</p>
+            <h1 class="hero-title">LockBox</h1>
+            <p class="hero-description">Onde você guarda <span class="italic">tudo</span> com segurança</p>
         </div>
     </div>
 
-    <div class="bg-white hero mr-40 min-h-screen text-black">
-        <div class="hero-content -mt-20">
-            <form method="POST" action="/login">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title text-xl">Faça o seu login</div>
+    <div class="auth-form-container">
+        <form method="POST" action="/login" class="auth-form">
+            <div class="card">
+                <h2 class="card-title">Faça o seu login</h2>
 
-                        <?php require base_path('views/partials/_mensagem.view.php'); ?>
+                <?php require base_path('views/partials/_mensagem.view.php'); ?>
 
-                        <label class="form-control">
-                            <div class="label">
-                                <span class="label-text text-black">Email</span>
-                            </div>
-
-                            <input
-                                type="text" name="email"
-                                class="input w-full max-w-xs bg-white"
-                                value="<?= old('email') ?>" />
-
-                            <?php if (isset($validacoes['email'])) { ?>
-                                <div class="mt-1 text-xs text-error"><?= $validacoes['email'][0] ?></div>
-                            <?php } ?>
-                        </label>
-
-                        <label class="form-control">
-                            <div class="label">
-                                <span class="label-text text-black">Senha</span>
-                            </div>
-
-                            <input type="password" name="senha" class="input input-bordered w-full max-w-xs bg-white" />
-
-                            <?php if (isset($validacoes['senha'])) { ?>
-                                <div class="mt-1 text-xs text-error"><?= $validacoes['senha'][0] ?></div>
-                            <?php } ?>
-                        </label>
-
-                        <div class="card-actions">
-                            <button class="btn btn-primary btn-block">Login</button>
-                            <a href="/registrar" class="btn btn-link">Quero me registrar</a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        class="form-input"
+                        placeholder="seu@email.com"
+                        value="<?= old('email') ?>"
+                        autocomplete="email" />
+                    <?php if (isset($validacoes['email'])) { ?>
+                        <span class="form-error"><?= $validacoes['email'][0] ?></span>
+                    <?php } ?>
                 </div>
-            </form>
-        </div>
-    </div>
 
+                <div class="form-group">
+                    <label class="form-label" for="senha">Senha</label>
+                    <input
+                        type="password"
+                        name="senha"
+                        id="senha"
+                        class="form-input"
+                        placeholder="••••••••"
+                        autocomplete="current-password" />
+                    <?php if (isset($validacoes['senha'])) { ?>
+                        <span class="form-error"><?= $validacoes['senha'][0] ?></span>
+                    <?php } ?>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                <a href="/registrar" class="btn btn-link btn-block">Quero me registrar</a>
+            </div>
+        </form>
+    </div>
 </div>

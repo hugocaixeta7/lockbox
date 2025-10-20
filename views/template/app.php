@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LockBox</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>LockBox - Gerenciador de Notas Seguro</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
-    <div class="mx-auto max-w-screen-lg h-screen flex flex-col space-y-6">
+    <div class="container">
         <?php require base_path('views/partials/_navbar.view.php') ?>
 
         <?php require base_path('views/partials/_pesquisar.view.php') ?>
 
         <?php require base_path('views/partials/_mensagem.view.php'); ?>
 
-        <div class="flex flex-grow pb-6">
+        <div style="min-height: calc(100vh - 200px); padding: 2rem 0;">
             <?php require base_path("views/{$view}.view.php"); ?>
         </div>
     </div>
+
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

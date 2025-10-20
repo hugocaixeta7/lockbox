@@ -1,0 +1,179 @@
+.notes-container {
+        display: flex;
+        gap: 1.5rem;
+        height: calc(100vh - 200px);
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .notes-sidebar {
+        width: 280px;
+        background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(20, 20, 40, 0.95));
+        border-radius: 16px;
+        padding: 1rem;
+        overflow-y: auto;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .notes-sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .notes-sidebar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    .notes-sidebar::-webkit-scrollbar-thumb {
+        background: rgba(139, 92, 246, 0.5);
+        border-radius: 3px;
+    }
+
+    .note-item {
+        display: block;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: #e2e8f0;
+    }
+
+    .note-item:hover {
+        background: rgba(139, 92, 246, 0.2);
+        border-color: rgba(139, 92, 246, 0.4);
+        transform: translateX(4px);
+    }
+
+    .note-item.active {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3));
+        border-color: rgba(139, 92, 246, 0.6);
+        box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+    }
+
+    .note-title {
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        color: #f1f5f9;
+    }
+
+    .note-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.75rem;
+        color: #94a3b8;
+    }
+
+    .note-id {
+        opacity: 0.7;
+    }
+
+    .note-date {
+        opacity: 0.8;
+    }
+
+    .note-editor {
+        flex: 1;
+        background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(20, 20, 40, 0.95));
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .note-form {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #cbd5e1;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .form-input,
+    .form-textarea {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #f1f5f9;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(139, 92, 246, 0.5);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+        color: #64748b;
+    }
+
+    .form-textarea {
+        resize: vertical;
+        min-height: 200px;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+    }
+
+    .form-textarea:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .form-error {
+        color: #f87171;
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+    }
+
+    .note-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .delete-form {
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .notes-container {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .notes-sidebar {
+            width: 100%;
+            max-height: 200px;
+        }
+    }
