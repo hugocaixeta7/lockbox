@@ -1,24 +1,34 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Controllers\Notas;
 
 use App\Models\Nota;
 
 class IndexController
 {
-
     public function __invoke()
     {
-        $notas = Nota::all();
+        $notas = Nota::all(
+            request()->get('pesquisar')
+        );
 
-        $id = isset($_GET['id']) ? $_GET['id'] : $notas[0]->id;
+        if (! $notaSelecionada = $this->getNotaSelecionada($notas)) {
+            return view('notas/nao-encontrada');
+        }
 
-        $filtro = array_filter($notas, fn($n) => $n->id == $id);
-        $notaselecionada = array_pop($filtro);
-
-        return view('notas', [
-            'notas' => $notas,
-            'notaSelecionada' => $notaselecionada
+        return view('notas/index', [
+            'notas'           => $notas,
+            'notaSelecionada' => $notaSelecionada,
         ]);
+    }
+
+    private function getNotaSelecionada($notas)
+    {
+        $id     = request()->get('id', (count($notas) > 0 ? $notas[0]->id : null));
+        $filtro = array_filter($notas, fn ($n) => $n->id == $id);
+
+        return array_pop($filtro);
     }
 }
