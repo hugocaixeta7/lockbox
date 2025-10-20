@@ -5,9 +5,9 @@ return [
         'driver' => 'mysql',
         'host'   => 'localhost',
         'port'   => 3306,
-        'database' => 'lockbox',   // <── troquei aqui
-        'username' => 'root',      // <── troquei aqui
-        'password' => '',          // <── adiciona se precisar
+        'database' => 'lockbox',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8mb4',
     ],
     'security' => [
