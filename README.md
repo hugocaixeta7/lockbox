@@ -14,10 +14,6 @@ Stack: **HTML**, **CSS + DaisyUI (Tailwind)**, **PHP**, **Composer**, **MySQL** 
 - ⏱️ Metadados: data de criação/atualização.
 - 📱 Layout responsivo.
 
-> Screenshots ficam em `docs/screenshots/`.  
-> Ex.:  
-> ![Dashboard](docs/screenshots/dashboard.png)
-
 ---
 
 ## 📦 Tecnologias
@@ -36,11 +32,7 @@ que cria automaticamente o banco **lockbox**, as tabelas e um usuário de demons
 **Usuário de teste:**
 
 Email: demo@lockbox.local
-
 Senha: 123456
-
-Para importar o banco, basta abrir o arquivo `.sql` no **phpMyAdmin** e clicar em *Importar*.
-
 ---
 
 ## 🖼️ Demonstração
