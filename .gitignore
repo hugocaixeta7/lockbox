@@ -1,1 +1,8 @@
 /vendor/
+
+# Ignora dumps e backups locais
+/database/backups/
+/database/*.dump.sql
+
+# Ignora credenciais
+.env
