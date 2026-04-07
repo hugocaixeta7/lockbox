@@ -1,24 +1,24 @@
-# 🔒 LockBox — Gerenciador de Notas Criptografadas
+# LockBox — Gerenciador de Notas Criptografadas
 
 Aplicação web para criar e gerenciar **notas privadas** com **login/registro**, **busca**, **tema dark** e **criptografia no servidor**.  
 Stack: **HTML**, **CSS + DaisyUI (Tailwind)**, **PHP**, **Composer**, **MySQL** e **JavaScript**.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 👤 Autenticação: registrar, login e logout.  
-- 📝 CRUD de notas: criar, listar, buscar, atualizar e deletar.  
-- 🔐 Criptografia **AES-256** (lado do servidor) para o conteúdo das notas.  
-- 🌙 Interface com **DaisyUI** (tema escuro responsivo).  
-- 🔎 Busca por título ou conteúdo.  
-- 🗑️ Confirmação antes de excluir (soft delete opcional).  
-- ⏱️ Metadados: data de criação e atualização.  
-- 📱 Layout totalmente responsivo.
+- Autenticação: registrar, login e logout.  
+- CRUD de notas: criar, listar, buscar, atualizar e deletar.  
+- Criptografia **AES-256** (lado do servidor) para o conteúdo das notas.  
+- Interface com **DaisyUI** (tema escuro responsivo).  
+- Busca por título ou conteúdo.  
+- Confirmação antes de excluir (soft delete opcional).  
+- Metadados: data de criação e atualização.  
+- Layout totalmente responsivo.
 
 ---
 
-## 📦 Tecnologias
+## Tecnologias
 
 - **PHP 8+** (servidor)  
 - **Composer** (autoloader e dependências)  
@@ -28,7 +28,7 @@ Stack: **HTML**, **CSS + DaisyUI (Tailwind)**, **PHP**, **Composer**, **MySQL** 
 
 ---
 
-## 🗄️ Banco de Dados
+## Banco de Dados
 
 O projeto inclui o arquivo [`database/lockbox.schema.sql`](database/lockbox.schema.sql),  
 que cria automaticamente o banco **lockbox**, as tabelas e um **usuário de demonstração**.
@@ -41,7 +41,7 @@ Senha: 123456
 
 ---
 
-## 🖼️ Demonstração
+## Demonstração
 
 > Algumas telas do sistema — login, registro e dashboard de notas.
 
